@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deposite</title>
+</head>
+<body>
+    <table border="1">
+        <tr>
+            <td>ID</td>
+            <!-- <td>Username</td> -->
+            <td>Amount</td>
+        </tr>
+
+        {% for i in Participants %}
+        <tr>
+            <td>{{i.userid}}</td>
+            <td>{{i.rupee}}</td>
+        </tr>
+        {% endfor %}
+
+        <tr>
+            <td >Total :</td>
+            <td>{{total}}</td>
+        </tr>
+    </table>
+
+    <a href="/pay">BACK</a>
+</body>
+</html>

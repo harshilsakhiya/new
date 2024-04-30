@@ -1,0 +1,58 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SignUp</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+    <style>
+        .slider {
+            height: 60px;
+            width: 150px;
+            border-radius: 50px;
+            background-image: linear-gradient(to right,
+                    rgb(255, 195, 110),
+                    rgb(255, 146, 91));
+            position: absolute;
+            top: 20px;
+            left: 250px;
+            transition: all 0.5s ease-in-out;
+        }
+    </style>
+
+</head>
+
+<body>
+    {% if error %}
+    <h1>{{ error }}</h1>
+    {% endif %}
+
+    <div class="container">
+
+        <div class="slider"></div>
+        <div class="btn">
+            <a href="/login"><button class="login">Login</button></a>
+            <a href="/"><button class="signup">Signup</button></a>
+        </div>
+
+        <form action="/get" method="post">
+            {% csrf_token  %}
+            <div class="signup-box">
+                <input type="text" class="name ele" placeholder="Enter your name" name="name" required>
+                <input type="email" class="email ele" placeholder="youremail@email.com" name="email" required>
+                <input type="password" class="password ele" placeholder="password" name="pw" required>
+                <input type="password" class="password ele" placeholder="Confirm password" name="cpw" required>
+                <input type="submit" name="" id="" value="SignUp" class="clkbtn">     
+            </div>
+        </form>
+        
+    </div>
+
+
+</body>
+
+</html>

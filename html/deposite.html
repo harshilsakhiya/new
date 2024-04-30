@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deposite</title>
+</head>
+<style>
+      body {
+    text-align: center;
+    padding: 40px 0;
+    background: #EBF0F5;
+  }
+
+  h1 {
+    color: #88B04B;
+    font-family: "Nunito Sans", "Helvetica Neue", sans-serif;
+    font-weight: 900;
+    font-size: 40px;
+    margin-bottom: 10px;
+  }
+
+  p {
+    color: #404F5E;
+    font-family: "Nunito Sans", "Helvetica Neue", sans-serif;
+    font-size: 20px;
+    margin: 0;
+  }
+
+  i {
+    color: #9ABC66;
+    font-size: 100px;
+    line-height: 200px;
+    margin-left: -15px;
+  }
+
+  .card {
+    background: white;
+    padding: 60px;
+    border-radius: 4px;
+    box-shadow: 0 2px 3px #C8D0D8;
+    display: inline-block;
+    margin: 0 auto;
+  }
+
+  .button{
+    margin-top: 50px;
+  }
+
+  #bottone1 {
+    padding-left: 33px;
+    padding-right: 33px;
+    padding-bottom: 16px;
+    padding-top: 16px;
+    border-radius: 9px;
+    background: #9ABC66;
+    border: none;
+    font-family: inherit;
+    text-align: center;
+    cursor: pointer;
+    transition: 0.4s;
+  }
+
+  #bottone1:hover {
+    box-shadow: 7px 5px 56px -14px #9ABC66;
+  }
+
+  #bottone1:active {
+    transform: scale(0.97);
+    box-shadow: 7px 5px 56px -10px #9ABC66;
+  }
+</style>
+<body>
+    <h1>DRAW VALUE={{total_amount}}</h1>
+    <h1>wining id={{userid}}</h1>
+    <h1>my wallet={{eight}}</h1>
+    <h1>service charge={{five}}</h1>
+    <h1>welfare Fund={{fifteen}}</h1>
+    {% if sessionId %}
+    <h1>SessionID :- {{ sessionId }}</h1>
+    {% endif %}
+    <table border="1">
+        <tr>
+            <td>ID</td>
+            <!-- <td>Username</td> -->
+            <td>Date</td>
+            <td>Time</td>
+            <td>Transactions</td>
+        </tr>
+
+        {% for i in Transactions %}
+        <tr>
+            <td>{{data.id}}</td>
+            <!-- <td>{{data.name}}</td> -->
+            <td>{{i.date}}</td>
+            <td>{{i.time}}</td>
+            <td>{{i.rupee}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <div class="button">
+        <a href="/logout?delid={{sessionId}}"><button id="bottone1"><strong>Logout</strong></button></a>
+        <a href="/pay?rupee=100"><button id="bottone1"><strong>Deposite (₹100)</strong></button></a>
+        <a href="/draw?rupee=100"><button id="bottone1"><strong>view </strong></button></a>
+        <a href="/win?rupee=100"><button id="bottone1"><strong>DRAW </strong></button></a>
+
+      </div>
+<!-- 
+    <a href="/userFound">BACK</a>
+    <a href="/draw">Draw</a> -->
+</body>
+</html>

@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+   
+    {% if error %}
+        <h1>{{ error }}</h1>
+    {% endif %}
+
+    <div class="container">
+
+        <div class="slider"></div>
+        <div class="btn">
+            <a href="/login"><button class="login">Login</button></a>
+            <a href="/"><button class="signup">Signup</button></a>
+        </div>
+
+        <div class="form-section">
+
+            <form action="/check" method="post">
+                {% csrf_token %}
+                <div class="login-box">
+                    <input type="email" class="email ele" placeholder="youremail@email.com" name="Email">
+                    <input type="password" class="password ele" placeholder="password" name="password">
+                    <input type="submit" value="Login" class="clkbtn">
+                </div>
+            </form>
+
+            
+        </div>
+    </div>
+</body>
+
+</html>
