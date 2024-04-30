@@ -107,8 +107,7 @@ def pay(request):
                 print("====--")
         data = register.objects.get(id=sid)
         transaction = Deposit.objects.filter(userid = sid)  
-        total=Win.objects.filter(myid=total)
-        print("totalll=",total)
+       
         return render(request, "deposite.html", {"Transactions": transaction, "data": data,"total_amount":total_amount})
 
     return redirect("/userFound")
