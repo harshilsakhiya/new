@@ -83,7 +83,7 @@ WSGI_APPLICATION = "draw.wsgi.application"
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'online',
+        'NAME': 'draw',
         'USER': 'root',
         'PASSWORD': '',
         'HOST': 'localhost',

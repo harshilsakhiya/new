@@ -24,3 +24,4 @@ class Win(models.Model):
     eight = models.CharField(max_length=100)
     five = models.CharField(max_length=100)
     fifty = models.CharField(max_length=100)
+    date=models.DateField()

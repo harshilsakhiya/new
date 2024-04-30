@@ -107,8 +107,15 @@ def pay(request):
                 print("====--")
         data = register.objects.get(id=sid)
         transaction = Deposit.objects.filter(userid = sid)  
-       
-        return render(request, "deposite.html", {"Transactions": transaction, "data": data,"total_amount":total_amount})
+        date=Win.objects.filter(date=date).first()
+        datte1=date.date
+        print("asdfghjkl==",datte1)
+        if(total_amount!=0):
+            a="not winner availble"
+        else:
+            a="yes draw"
+
+        return render(request, "deposite.html", {"Transactions": transaction, "data": data,"total_amount":total_amount,"a":a,"datte1":datte1})
 
     return redirect("/userFound")
 import random
@@ -130,9 +137,16 @@ def win(request):
         print("five==",five)
         total_amount=total_amount-total_amount
         print(total_amount)
+        current_datetime = datetime.now()
+        datte1 = current_datetime.date()
+        print("====>",datte1)
+        if total_amount==0:
+            a="congratulations winner is announce"
+        else:
+            a="no all"
         if eight and fifteen and five:
             total_amount_returned = total_amount + (1000 * (total_amount // 10))
-            Win.objects.create(total=total_amount_returned,userid=userid,eight=eight,five=five,fifty=fifteen)
-    return render(request,"deposite.html",{'eight':eight,'fifteen':fifteen,'five':five,'total_amount':total_amount,"userid":userid})
+            Win.objects.create(total=total_amount_returned,userid=userid,eight=eight,five=five,fifty=fifteen,date=datte1)
+    return render(request,"deposite.html",{'eight':eight,'fifteen':fifteen,'five':five,'total_amount':total_amount,"userid":userid,"a":a,"datte1":datte1})
     
 
